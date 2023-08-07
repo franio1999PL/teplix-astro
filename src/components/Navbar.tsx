@@ -1,6 +1,7 @@
 type LinkType = {
   name: string
   slug: string
+  newTab?: boolean
 }
 
 const Links: LinkType[] = [
@@ -13,8 +14,9 @@ const Links: LinkType[] = [
     slug: '/qrcode'
   },
   {
-    name: 'QrCode',
-    slug: '/qrcode'
+    name: 'Grzejniki Próżniowe',
+    slug: 'https://grzejnikiprozniowe.pl',
+    newTab: true
   },
   {
     name: 'QrCode',
@@ -31,9 +33,13 @@ export default function Navbar () {
     <nav className='m-8 bg-white p-4 text-black  '>
       <ul className='flex justify-around items-center'>
         <img src='logo.png' className='w-1/8' alt='' />
-        {Links.map(({ name, slug }) => (
+        {Links.map(({ name, slug, newTab }) => (
           <li key={name}>
-            <a className='text-base font-bold uppercase' href={slug}>
+            <a
+              className='text-base font-bold uppercase hover:[#00b83f]'
+              href={slug}
+              target={newTab ? '_blank' : ''}
+            >
               {name}
             </a>
           </li>
