@@ -36,7 +36,7 @@ export default function Navbar () {
         {Links.map(({ name, slug, newTab }) => (
           <li key={name}>
             <a
-              className='text-base font-bold uppercase hover:[#00b83f]'
+              className='text-base font-bold uppercase hover:text-[#00b83f]'
               href={slug}
               target={newTab ? '_blank' : ''}
             >
