@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+const posts = await res.json()
+
+---
+
+<Layout title="Blog | Teplix">
+    <section class="w-full flex flex-col items-center justify-center gap-8">
+        <h1 class="text-2xl p-8">Dane pobrane z strony: <a class="font-bold text-[#583BD1] hover:text-[#583BD1]/50" href="https://jsonplaceholder.typicode.com/posts" target="_blank">https://jsonplaceholder.typicode.com/posts</a></h1>
+    {
+        posts.map((post:any) => (
+            <div class="p-8 m-4 flex gap-4 flex-col justify-center items-center shadow-xl rounded-xl lg:w-1/3 hover:bg-[#583BD1]/20 cursor-pointer">
+                <h2 class="text-2xl uppercase text-center font-bold" set:html={post.title} />
+                <p class="text-center " set:html={post.body} />
+            </div>
+        ))
+      }
+    </section>
+</Layout>
