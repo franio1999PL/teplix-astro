@@ -20,7 +20,7 @@ const FooterLinks: FooterLinksType[] = [
   {
     sectionName: 'Lokalizacja',
     name: 'Tutaj nas znajdziesz!',
-    url: 'https://goo.gl/maps/CEhH1F1KjxUwiCyKA',
+    url: 'https://goo.gl/maps/xkkKFeYrw7s38E8Q7',
     newTab: true
   }
 ]
@@ -31,7 +31,7 @@ export default function Footer () {
       <div className='flex justify-evenly items-center w-3/5'>
         {FooterLinks.map(({ sectionName, name, url, newTab }) => (
           <div className='flex flex-col gap-4'>
-            <span className='font-bold'>{sectionName}</span>
+            <span className='font-bold text-[#583BD1]'>{sectionName}</span>
             <a href={url} target={newTab ? '_blank' : ''}>
               {name}
             </a>
