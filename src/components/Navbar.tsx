@@ -6,8 +6,8 @@ type LinkType = {
 
 const Links: LinkType[] = [
   {
-    name: 'Projekty',
-    slug: '/projekty'
+    name: 'Strona Główna',
+    slug: '/'
   },
   {
     name: 'QrCode',
@@ -19,18 +19,18 @@ const Links: LinkType[] = [
     newTab: true
   },
   {
-    name: 'QrCode',
-    slug: '/qrcode'
+    name: '(Wyłączony link)',
+    slug: '#'
   },
   {
-    name: 'QrCode',
-    slug: '/qrcode'
+    name: '(Wyłączony link)',
+    slug: '#'
   }
 ]
 
 export default function Navbar () {
   return (
-    <nav className='m-8 bg-white p-4 text-black  '>
+    <nav className='m-8 bg-white p-8 text-black z-10 top-0 left-0 sticky  w-[96%] hover:drop-shadow-lg transition-all duration-300'>
       <ul className='flex justify-around items-center'>
         <img src='logo.png' className='w-1/8' alt='' />
         {Links.map(({ name, slug, newTab }) => (
@@ -44,9 +44,11 @@ export default function Navbar () {
             </a>
           </li>
         ))}
-        <li className='bg-[#00b83f] text-white p-4 text-md font-bold uppercase border-2 border-[#00b83f] hover:bg-white hover:text-[#00b83f] transition-all duration-300'>
-          <a href='#'>Kontakt</a>
-        </li>
+        <a href='/kontakt'>
+          <button className='bg-[#00b83f] text-white p-4 text-md font-bold uppercase border-2 border-[#00b83f] hover:bg-white hover:text-[#00b83f] transition-all duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl '>
+            Kontakt
+          </button>
+        </a>
       </ul>
     </nav>
   )
