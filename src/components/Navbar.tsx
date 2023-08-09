@@ -8,7 +8,8 @@ type LinkType = {
 
 const Links: LinkType[] = [
   {
-    name: 'Strona Główna',
+    // name: 'Strona Główna',
+    name: 'Panele Grzewcze',
     slug: '/'
   },
   {
@@ -36,16 +37,17 @@ const Links: LinkType[] = [
 
 export default function Navbar () {
   return (
-    <nav className='m-8 bg-white p-8 text-black z-10 top-0 left-0 sticky  w-[96%]'>
+    <nav className='m-8 bg-white px-[55px] py-8 text-black z-10 top-0 left-0 sticky  w-[96%]'>
       <ul className='flex justify-around items-center'>
         {/* <img src='logo.png' className='w-1/8' alt='' /> */}
         <a href='/'>
-          <img src={LogoSvg} className='w-[248px]' alt='' />
+          <img src={LogoSvg} className='w-[255px] h-[47.59px]' alt='' />
         </a>
         {Links.map(({ name, slug, newTab }) => (
           <li key={name}>
             <a
-              className='text-base font-bold uppercase hover:border-b-2 border-[#583BD1] hover:py-2 px-2 hover:text-[#583BD1]/60 transition-all ease-out duration-100'
+              className='text-base font-bold uppercase hover:border-b-2 border-[#583BD1] hover:py-2 px-2 hover:text-[#583BD1]/60 transition-all ease-out duration-100 text-sm'
+              style={{ fontWeight: 700 }}
               href={slug}
               target={newTab ? '_blank' : ''}
             >
