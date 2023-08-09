@@ -30,7 +30,7 @@ export default function Footer () {
     <footer className='w-full p-32 flex justify-between items-center'>
       <div className='flex justify-evenly items-center w-3/5'>
         {FooterLinks.map(({ sectionName, name, url, newTab }) => (
-          <div className='flex flex-col gap-4'>
+          <div key={name} className='flex flex-col gap-4'>
             <span className='font-bold text-[#583BD1]'>{sectionName}</span>
             <a href={url} target={newTab ? '_blank' : ''}>
               {name}
