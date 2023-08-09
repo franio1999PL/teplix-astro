@@ -37,30 +37,38 @@ const Links: LinkType[] = [
 
 export default function Navbar () {
   return (
-    <nav className='m-8 bg-white px-[55px] py-8 text-black z-10 top-0 left-0 sticky  w-[96%]'>
-      <ul className='flex justify-around items-center'>
-        {/* <img src='logo.png' className='w-1/8' alt='' /> */}
+    <header className='m-8 bg-white px-[55px] py-8 text-black z-10 top-0 left-0 sticky  w-[96%]'>
+      <nav className='w-full flex items-center justify-between'>
         <a href='/'>
-          <img src={LogoSvg} className='w-[255px] h-[47.59px]' alt='' />
+          {/* <img src={LogoSvg} className='w-[255px] h-[47.59px]' alt='' /> */}
+          <img
+            src={LogoSvg}
+            className='block w-auto max-h-[68px] max-w-[70%]'
+            alt=''
+          />
         </a>
-        {Links.map(({ name, slug, newTab }) => (
-          <li key={name}>
-            <a
-              className='text-base font-bold uppercase hover:border-b-2 border-[#583BD1] hover:py-2 px-2 hover:text-[#583BD1]/60 transition-all ease-out duration-100 text-sm'
-              style={{ fontWeight: 700 }}
-              href={slug}
-              target={newTab ? '_blank' : ''}
-            >
-              {name}
-            </a>
-          </li>
-        ))}
-        <a href='/kontakt'>
-          <button className='bg-[#583BD1] text-white p-4 text-md font-bold uppercase border-2 border-[#583BD1] hover:bg-white hover:text-[#583BD1] transition-all duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl '>
-            Kontakt
-          </button>
-        </a>
-      </ul>
-    </nav>
+        <ul className='flex justify-around items-center w-full'>
+          {/* <img src='logo.png' className='w-1/8' alt='' /> */}
+
+          {Links.map(({ name, slug, newTab }) => (
+            <li key={name}>
+              <a
+                className='font-bold uppercase hover:border-b-2 border-[#583BD1] hover:py-2 px-2 hover:text-[#583BD1]/60 transition-all ease-out duration-100 text-sm'
+                style={{ fontWeight: 700 }}
+                href={slug}
+                target={newTab ? '_blank' : ''}
+              >
+                {name}
+              </a>
+            </li>
+          ))}
+          <a href='/kontakt'>
+            <button className='bg-[#583BD1] text-white p-4 text-md font-bold uppercase border-2 border-[#583BD1] hover:bg-white hover:text-[#583BD1] transition-all duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl '>
+              Kontakt
+            </button>
+          </a>
+        </ul>
+      </nav>
+    </header>
   )
 }
