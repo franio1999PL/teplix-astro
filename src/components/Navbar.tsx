@@ -63,7 +63,7 @@ export default function Navbar () {
             </li>
           ))}
           <a href='/kontakt'>
-            <button className='bg-[#583BD1] text-white p-4 text-md font-bold uppercase border-2 border-[#583BD1] hover:bg-white hover:text-[#583BD1] transition-all duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl '>
+            <button className='bg-[#583BD1] text-white p-4 px-6 text-md font-bold uppercase border-2 border-[#583BD1] hover:bg-white hover:text-[#583BD1] transition-all duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl '>
               Kontakt
             </button>
           </a>
