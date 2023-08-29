@@ -80,9 +80,11 @@ export default function Navbar () {
             className='bg-primary p-4 rounded-full'
           >
             {!isOpen ? (
-              <FaBars className='text-white' />
+              "="
+              // <FaBars className='text-white' /> 
             ) : (
-              <Xicon className='text-white' />
+              "X"
+              // <Xicon className='text-white' />
             )}
           </button>
         </div>
