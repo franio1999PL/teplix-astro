@@ -1,20 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+export const isOpen: boolean = false
+
 ---
 
 <Layout title="Strona Główna | Teplix">
 	<div class="bgImage">
-		<div class="w-full h-full flex flex-col items-start justify-center bg-black/40">
-			<h1 class="text-white text-6xl font-bold ml-[6vw]">Rozwiązania, które ogrzeją rodzinną atmosferę.</h1>
-			<p class="text-white text-xl font-medium mt-4 ml-[6vw]">Ciepło, niskie rachunki za prąd, poczucie bezpieczeństwa - Greensail to gwarancja solidnej innowacyjności dla Twojego domu i biznesu.</p>
+		<div class="w-full h-full flex flex-col items-start justify-center  md:flex bg-black/40">
+			<h1 class="text-white text-xl md:text-6xl font-bold ">Rozwiązania, które ogrzeją rodzinną atmosferę.</h1>
+			<p class="text-white text-xl md:text-xl font-medium mt-4 ">Ciepło, niskie rachunki za prąd, poczucie bezpieczeństwa - Greensail to gwarancja solidnej innowacyjności dla Twojego domu i biznesu.</p>
 		</div>
 	</div>
-	<div class="mt-[48.96vw] z-40">
+	<div class="mt-[48.96vw]">
 		<h1 class="text-8xl text-center p-12">Strona Główna</h1>
 	</div>
 </Layout>
-
 
 <style>
 	.bgImage {

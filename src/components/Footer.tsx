@@ -27,18 +27,18 @@ const FooterLinks: FooterLinksType[] = [
 
 export default function Footer () {
   return (
-    <footer className='w-full p-32 flex justify-between items-center'>
-      <div className='flex justify-evenly items-center w-3/5'>
+    <footer className='w-full md:p-32 p-8 flex justify-between md:justify-center text-center items-center flex-col md:flex-row'>
+      <div className='flex justify-evenly md:justify-center items-center flex-col md:flex-row w-full md:w-3/5 gap-4 '>
         {FooterLinks.map(({ sectionName, name, url, newTab }) => (
           <div key={name} className='flex flex-col gap-4'>
-            <span className='font-bold text-[#583BD1]'>{sectionName}</span>
+            <span className='font-bold text-primary'>{sectionName}</span>
             <a href={url} target={newTab ? '_blank' : ''}>
               {name}
             </a>
           </div>
         ))}
       </div>
-      <div className='flex justify-center items-center gap-4'>
+      <div className='flex md:flex-row flex-col  justify-center items-center gap-4'>
         Śledź nas na Social Mediach:
         <img className='w-3 cursor-pointer' src='/fb.svg' alt='' />
       </div>

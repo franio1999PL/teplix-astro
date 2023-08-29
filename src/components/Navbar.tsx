@@ -1,11 +1,15 @@
+import React, { useState } from 'react'
+import { FaBars, FaX as Xicon } from 'react-icons/fa6'
 import LogoSvg from '/teplix-logo.svg'
 
+// Typ danych dla linków nawigacyjnych
 type LinkType = {
   name: string
   slug: string
   newTab?: boolean
 }
 
+// Dane linków
 const Links: LinkType[] = [
   {
     // name: 'Strona Główna',
@@ -36,39 +40,72 @@ const Links: LinkType[] = [
 ]
 
 export default function Navbar () {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <header className='m-8 bg-white px-[55px] py-8 text-black z-10 top-0 left-0 sticky  w-[96%]'>
-      <nav className='w-full flex items-center justify-between'>
+    <nav className='m-8 bg-white px-[55px] py-8 text-black z-10 top-0 left-0 sticky w-[96%]'>
+      <div className='flex items-center justify-between'>
         <a href='/'>
-          {/* <img src={LogoSvg} className='w-[255px] h-[47.59px]' alt='' /> */}
           <img
             src={LogoSvg}
             className='block w-auto max-h-[68px] max-w-[70%]'
             alt=''
           />
         </a>
-        <ul className='flex justify-around items-center w-full'>
-          {/* <img src='logo.png' className='w-1/8' alt='' /> */}
-
-          {Links.map(({ name, slug, newTab }) => (
-            <li key={name}>
-              <a
-                className='font-bold uppercase hover:border-b-2 border-[#583BD1] hover:py-2 px-2 hover:text-[#583BD1]/60 transition-all ease-out duration-100 text-sm'
-                style={{ fontWeight: 700 }}
-                href={slug}
-                target={newTab ? '_blank' : ''}
-              >
-                {name}
-              </a>
-            </li>
-          ))}
-          <a href='/kontakt'>
-            <button className='bg-[#583BD1] text-white p-4 px-6 text-md font-bold uppercase border-2 border-[#583BD1] hover:bg-white hover:text-[#583BD1] transition-all duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl '>
-              Kontakt
-            </button>
-          </a>
-        </ul>
-      </nav>
-    </header>
+        <div className='hidden md:block'>
+          <ul className='flex justify-center md:justify-around gap-8 items-center'>
+            {Links.map(({ name, slug, newTab }) => (
+              <li key={name}>
+                <a
+                  className='font-bold uppercase hover:border-b-2 border-primary hover:py-2 px-2 hover:text-primary/60 transition-all ease-out duration-100 text-sm'
+                  style={{ fontWeight: 700 }}
+                  href={slug}
+                  target={newTab ? '_blank' : ''}
+                  rel={newTab ? 'noopener noreferrer' : ''}
+                >
+                  {name}
+                </a>
+              </li>
+            ))}
+            <a href='/kontakt'>
+              <button className='bg-primary text-white p-4 px-6 text-md font-bold uppercase border-2 border-primary hover:bg-white hover:text-primary transition-all duration-300 ease-in hover:-translate-y-1 hover:shadow-2xl'>
+                Kontakt
+              </button>
+            </a>
+          </ul>
+        </div>
+        <div className='md:hidden'>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className='bg-primary p-4 rounded-full'
+          >
+            {!isOpen ? (
+              <FaBars className='text-white' />
+            ) : (
+              <Xicon className='text-white' />
+            )}
+          </button>
+        </div>
+      </div>
+      {isOpen && (
+        <div className='flex flex-col items-center list-none justify-around h-2/3 sticky left-0 top-0 md:hidden bg-slate-700 mt-16'>
+          <ul>
+            {Links.map(({ name, slug, newTab }) => (
+              <li key={name}>
+                <a
+                  className='font-bold uppercase hover:border-b-2 border-primary hover:py-2 px-2 hover:text-primary/60 transition-all ease-out duration-100 text-sm'
+                  style={{ fontWeight: 700 }}
+                  href={slug}
+                  target={newTab ? '_blank' : ''}
+                  rel={newTab ? 'noopener noreferrer' : ''}
+                >
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </nav>
   )
 }
